@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/playlistImage"
             android:layout_width="138dp"
             android:layout_height="167dp"
             android:layout_gravity="center"
@@ -46,7 +46,7 @@
             app:srcCompat="@drawable/album_cover" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/playlistTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -54,6 +54,29 @@
             android:text="Playlist"
             android:textColor="@color/yellow"
             android:textSize="24sp" />
+
+        <LinearLayout
+            android:id="@+id/playlistActions"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_weight="0"
+                android:background="@drawable/circle"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1"
+                app:srcCompat="@drawable/pause_button" />
+        </LinearLayout>
 
     </LinearLayout>
 
