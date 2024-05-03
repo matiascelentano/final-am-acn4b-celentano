@@ -92,6 +92,22 @@
                 android:layout_weight="0"
                 app:srcCompat="@drawable/pause_button" />
 
+            <ImageButton
+                android:id="@+id/button_download"
+                style="@style/button_secondary"
+                android:layout_width="50dp"
+                android:layout_height="51dp"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/download_icon" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                style="@style/button_secondary"
+                android:layout_width="50dp"
+                android:layout_height="51dp"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/like_icon" />
+
         </LinearLayout>
 
     </LinearLayout>
