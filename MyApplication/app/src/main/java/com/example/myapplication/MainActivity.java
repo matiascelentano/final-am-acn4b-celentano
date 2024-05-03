@@ -1,15 +1,20 @@
 package com.example.myapplication;
 
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.button.MaterialButtonToggleGroup;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,11 +28,19 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
-    public void download(View view){
-        ImageButton buttonDownload =findViewById(R.id.button_download);
-        Drawable drawable = getDrawable(R.drawable.arrow_right);
-        buttonDownload.setImageDrawable(drawable);
+        MaterialButton buttonPlayPause = findViewById(R.id.button_play_pause);
+        buttonPlayPause.addOnCheckedChangeListener(new MaterialButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(MaterialButton materialButton, boolean b) {
+                Log.i("Click", "estado: "+b);
+                if(b == true){
+                    materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
+                }else {
+                    materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.pause_button, null));
+                }
+            }
+        });
     }
 
 }
