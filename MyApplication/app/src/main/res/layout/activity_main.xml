@@ -59,23 +59,37 @@
             android:id="@+id/playlistActions"
             android:layout_width="match_parent"
             android:layout_height="76dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/imageButton2"
+                style="@style/button_secondary"
+                android:layout_width="60dp"
+                android:layout_height="61dp"
                 android:layout_weight="0"
-                android:background="@drawable/circle"
-                android:scaleType="fitXY"
+                app:srcCompat="@drawable/dots_icon" />
+
+            <ImageButton
+                android:id="@+id/button_random"
+                style="@style/button_secondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1"
+                app:srcCompat="@drawable/random_icon" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@style/button_play"
+                android:layout_width="70dp"
+                android:layout_height="71dp"
+                android:layout_weight="0"
                 app:srcCompat="@drawable/pause_button" />
+
         </LinearLayout>
 
     </LinearLayout>
