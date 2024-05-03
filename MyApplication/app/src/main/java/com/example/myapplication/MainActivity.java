@@ -1,6 +1,9 @@
 package com.example.myapplication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +24,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+    public void download(View view){
+        ImageButton buttonDownload =findViewById(R.id.button_download);
+        Drawable drawable = getDrawable(R.drawable.arrow_right);
+        buttonDownload.setImageDrawable(drawable);
+    }
+
 }

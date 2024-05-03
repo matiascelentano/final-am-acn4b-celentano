@@ -62,50 +62,80 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/button_dots_playlist"
-                style="@style/button_secondary"
-                android:layout_width="50dp"
-                android:layout_height="51dp"
-                android:layout_weight="0"
-                app:srcCompat="@drawable/dots_icon" />
 
-            <ImageButton
-                android:id="@+id/button_random"
+            <com.google.android.material.button.MaterialButton
                 style="@style/button_secondary"
-                android:layout_width="50dp"
-                android:layout_height="51dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1"
-                app:srcCompat="@drawable/random_icon" />
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/dots_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@color/yellow" />
+            <com.google.android.material.button.MaterialButton
+                style="@style/button_secondary"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/random_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@color/light_grey"/>
 
-            <ImageButton
-                android:id="@+id/button_play_playlist"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_pause"
                 style="@style/button_play"
-                android:layout_width="70dp"
-                android:layout_height="71dp"
-                android:layout_weight="0"
-                app:srcCompat="@drawable/pause_button" />
-
-            <ImageButton
-                android:id="@+id/button_download"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:paddingTop="10dp"
+                app:backgroundTint="@color/purple_button"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/pause_button"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="70dp"
+                app:iconTint="@color/pink" />
+            <com.google.android.material.button.MaterialButton
                 style="@style/button_secondary"
-                android:layout_width="50dp"
-                android:layout_height="51dp"
-                android:layout_weight="0"
-                app:srcCompat="@drawable/download_icon" />
-
-            <ImageButton
-                android:id="@+id/imageButton2"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/dots_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@color/light_grey" />
+            <com.google.android.material.button.MaterialButton
                 style="@style/button_secondary"
-                android:layout_width="50dp"
-                android:layout_height="51dp"
-                android:layout_weight="0"
-                app:srcCompat="@drawable/like_icon" />
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/dots_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@color/light_grey"/>
 
         </LinearLayout>
 
