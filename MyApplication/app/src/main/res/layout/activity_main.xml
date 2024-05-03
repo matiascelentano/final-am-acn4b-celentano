@@ -64,7 +64,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/button_dots_playlist"
                 style="@style/button_secondary"
                 android:layout_width="60dp"
                 android:layout_height="61dp"
@@ -83,7 +83,7 @@
                 app:srcCompat="@drawable/random_icon" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/button_play_playlist"
                 style="@style/button_play"
                 android:layout_width="70dp"
                 android:layout_height="71dp"
