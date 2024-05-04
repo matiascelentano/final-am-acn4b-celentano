@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/playlistImage"
             android:layout_width="134dp"
             android:layout_height="138dp"
@@ -45,6 +45,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="4dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
             android:cropToPadding="false"
             app:srcCompat="@drawable/album_cover" />
 
