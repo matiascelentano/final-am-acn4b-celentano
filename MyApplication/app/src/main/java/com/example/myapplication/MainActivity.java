@@ -1,7 +1,11 @@
 package com.example.myapplication;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -23,15 +27,17 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        MaterialButton buttonPlayPause = findViewById(R.id.button_play_pause);
+        MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
+        MediaPlayer song = MediaPlayer.create(this, R.raw.emotion_engine);
         buttonPlayPause.addOnCheckedChangeListener((materialButton, b) -> {
             Log.i("Click", "estado: "+b);
             if(b){
                 materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
+                song.start();
             }else {
                 materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.pause_button, null));
+                song.pause();
             }
         });
     }
-
 }
