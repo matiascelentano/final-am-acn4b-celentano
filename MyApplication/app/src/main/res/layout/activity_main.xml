@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/playlistImage"
-            android:layout_width="138dp"
-            android:layout_height="167dp"
+            android:layout_width="134dp"
+            android:layout_height="138dp"
             android:layout_gravity="center"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
@@ -53,6 +53,15 @@
             android:text="Playlist"
             android:textColor="@color/yellow"
             android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="350dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="TextView"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:id="@+id/playlistActions"
