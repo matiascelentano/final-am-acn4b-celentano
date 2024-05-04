@@ -21,6 +21,7 @@ public class SongViewHolder extends RecyclerView.ViewHolder {
         songAlbum = itemView.findViewById(R.id.songAlbum);
     }
     public void render(Song song){
+        songImage.setImageResource(R.drawable.album_cover);
         songTitle.setText(song.getName());
         songArtist.setText(song.getArtist());
         songAlbum.setText(song.getAlbumName());
