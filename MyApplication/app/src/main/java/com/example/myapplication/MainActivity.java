@@ -1,8 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Context;
-import android.media.MediaPlayer;
-import android.media.browse.MediaBrowser;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,13 +12,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
-import androidx.media3.exoplayer.*;
 import androidx.media3.exoplayer.ExoPlayer;
-import androidx.media3.exoplayer.MetadataRetriever;
-
 import com.google.android.material.button.MaterialButton;
 
-import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,27 +29,29 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        //Boton Play/Pause
+        MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
         //Preparando Exoplayer
-        ExoPlayer player = new ExoPlayer.Builder(this).build();
-        MediaItem song1 = MediaItem.fromUri(Uri.parse("asset:///daft_punk_crescendolls.mp3"));
-        player.setMediaItem(song1);
-        player.prepare();
-        //Probando conseguir informacion de la cancion a partir de la metadata
-        //MediaMetadata mediaMetadata = player.getMediaMetadata();
-       // Log.i("song", "cancion: " + mediaMetadata.title);
-        player.addListener(new Player.Listener() {
+        ExoPlayer player = createExoPlayerPlaylist();
+        player.addListener(new Player.Listener(){
                    @Override
+                   //Probando conseguir informacion de la cancion a partir de la metadata
                    public void onMediaMetadataChanged(MediaMetadata mediaMetadata) {
-                       //Now get posted values like this
                        Log.i("song", "cancion: " + mediaMetadata.title);
                    }
-               }
-        );
+                    @Override
+                    //TODO: Implementar funcion para que se resetee la playlist al terminar de reproducir todos los items en el player
+                    public void onIsPlayingChanged(boolean isPlaying) {
+                        if (isPlaying) {
+
+                        } else {
+                            buttonPlayPause.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
+                        }
+                    }
+        });
 
         //Listener en boton play/pause para reproducir/pausar cancion y cambiar de icono
-        MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
         buttonPlayPause.addOnCheckedChangeListener((materialButton, b) -> {
-            Log.i("blah", "funciona: " + b);
             if (b) {
                 materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.pause_button, null));
                 player.play();
@@ -68,4 +63,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public ExoPlayer createExoPlayerPlaylist(){
+        ExoPlayer player = new ExoPlayer.Builder(this).build();
+        MediaItem song1 = MediaItem.fromUri(Uri.parse("asset:///test_sample.mp3"));
+        MediaItem song2 = MediaItem.fromUri(Uri.parse("asset:///emotion_engine.mp3"));
+        player.addMediaItem(song1);
+        player.addMediaItem(song2);
+        player.prepare();
+        return player;
+    }
+
 }
