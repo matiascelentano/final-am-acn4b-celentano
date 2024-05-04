@@ -120,12 +120,11 @@
                 android:paddingTop="10dp"
                 app:backgroundTint="@color/purple_button"
                 app:cornerRadius="20dp"
-                app:icon="@drawable/pause_button"
+                app:icon="@drawable/play_button"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"
                 app:iconSize="70dp"
-                app:iconTint="@color/pink"
-                app:toggleCheckedStateOnClick="true" />
+                app:iconTint="@color/pink" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/downloadButton"

@@ -2,10 +2,7 @@ package com.example.myapplication;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -28,16 +25,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
-        MediaPlayer song = MediaPlayer.create(this, R.raw.emotion_engine);
+        MediaPlayer song = MediaPlayer.create(this, R.raw.test_sample);
         buttonPlayPause.addOnCheckedChangeListener((materialButton, b) -> {
-            Log.i("Click", "estado: "+b);
+            Log.i("blah", "funciona: " + b);
             if(b){
-                materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
-                song.start();
-            }else {
                 materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.pause_button, null));
+                song.start();
+            }else if(!b && song.isPlaying()) {
+                materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
                 song.pause();
+            }else{
+                materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
             }
+        });
+        song.setOnCompletionListener(mediaPlayer -> {
+            buttonPlayPause.setChecked(false);
         });
     }
 }
