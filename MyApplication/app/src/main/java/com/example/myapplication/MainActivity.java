@@ -9,7 +9,11 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.media3.exoplayer.ExoPlayer;
+
 import com.google.android.material.button.MaterialButton;
+
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
-        MediaPlayer song = MediaPlayer.create(this, R.raw.test_sample);
+        MediaPlayer song = MediaPlayer.create(this, R.raw.daft_punk_crescendolls);
+        Log.i("song", "cancion: " + Arrays.toString(song.getTrackInfo()));
         buttonPlayPause.addOnCheckedChangeListener((materialButton, b) -> {
             Log.i("blah", "funciona: " + b);
             if(b){
