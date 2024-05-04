@@ -3,8 +3,10 @@ package com.example.myapplication;
 public class Song {
     private Integer id;
     private String name;
+    private String artist;
     private String albumName;
     private Integer duration;
+    private String image;
     private String fileName;
     private String directoryPath;
     //Getters & Setters
@@ -20,6 +22,12 @@ public class Song {
     public void setName(String name) {
         this.name = name;
     }
+    public String getArtist() {
+        return artist;
+    }
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
     public String getAlbumName() {
         return albumName;
     }
@@ -32,6 +40,15 @@ public class Song {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getFileName() {
         return fileName;
     }
@@ -45,9 +62,10 @@ public class Song {
         this.directoryPath = "asset:///"+ this.getFileName();
     }
 
-    public Song(Integer id, String name, String albumName, Integer duration, String fileName) {
+    public Song(Integer id, String name,String artist, String albumName, Integer duration,String image, String fileName) {
         setId(id);
         setName(name);
+        setArtist(artist);
         setAlbumName(albumName);
         setDuration(duration);
         setFileName(fileName);

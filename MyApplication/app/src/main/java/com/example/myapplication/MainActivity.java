@@ -13,6 +13,10 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
 
 
@@ -29,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        initRecyclerView();
+
         //Boton Play/Pause
         MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
         //Preparando Exoplayer
@@ -65,12 +72,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public ExoPlayer createExoPlayerPlaylist(){
         ExoPlayer player = new ExoPlayer.Builder(this).build();
-        MediaItem song1 = MediaItem.fromUri(Uri.parse("asset:///test_sample.mp3"));
-        MediaItem song2 = MediaItem.fromUri(Uri.parse("asset:///emotion_engine.mp3"));
+        MediaItem song1 = MediaItem.fromUri(Uri.parse("asset:///emotion_engine.mp3"));
+        MediaItem song2 = MediaItem.fromUri(Uri.parse("asset:///crescendolls.mp3"));
         player.addMediaItem(song1);
         player.addMediaItem(song2);
         player.prepare();
         return player;
     }
-
+    private void initRecyclerView(){
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewId);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        SongAdapter songAdapter = new SongAdapter(SongList.getSongs());
+        recyclerView.setAdapter(songAdapter);
+    }
 }
