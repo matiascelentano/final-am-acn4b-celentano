@@ -79,9 +79,5 @@ public class MainActivity extends AppCompatActivity {
         SongAdapter songAdapter = new SongAdapter(SongList.getSongs());
         recyclerView.setAdapter(songAdapter);
     }
-    public int searchDrawable(Song song){
-        int id = getResources().getIdentifier(song.getImage() , "drawable", getPackageName());
-        return id;
-    }
 
 }

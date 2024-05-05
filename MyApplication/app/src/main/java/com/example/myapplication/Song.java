@@ -6,7 +6,7 @@ public class Song {
     private String artist;
     private String albumName;
     private Integer duration;
-    private String image;
+    private int image;
     private String fileName;
     private String directoryPath;
     //Getters & Setters
@@ -41,11 +41,10 @@ public class Song {
         this.duration = duration;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
-
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
@@ -62,11 +61,12 @@ public class Song {
         this.directoryPath = "asset:///"+ this.getFileName();
     }
 
-    public Song(Integer id, String name,String artist, String albumName, Integer duration,String image, String fileName) {
+    public Song(Integer id, String name,String artist, String albumName, Integer duration,int image, String fileName) {
         setId(id);
         setName(name);
         setArtist(artist);
         setAlbumName(albumName);
+        setImage(image);
         setDuration(duration);
         setFileName(fileName);
         setDirectoryPath(fileName);
