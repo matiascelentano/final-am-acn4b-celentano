@@ -1,5 +1,6 @@
 package com.example.myapplication.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,11 +22,16 @@ public class SongViewHolder extends RecyclerView.ViewHolder {
         songAlbum = itemView.findViewById(R.id.songAlbum);
     }
     public void render(Song song){
-        songImage.setImageResource(R.drawable.album_cover);
+        int id1 = R.drawable.album_cover;
+        int id2 = R.drawable.album_cover2;
+        int randomNum = (int)Math.floor(Math.random() * (2 - 1 + 1) + 1);
+        if(randomNum == 1){
+            songImage.setImageResource(id1);
+        }else {
+            songImage.setImageResource(id2);
+        }
         songTitle.setText(song.getName());
         songArtist.setText(song.getArtist());
         songAlbum.setText(song.getAlbumName());
     }
-
-
 }

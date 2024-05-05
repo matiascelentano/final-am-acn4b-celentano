@@ -15,11 +15,8 @@ import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
-
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         initRecyclerView();
-
         //Boton Play/Pause
         MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
         //Preparando Exoplayer
@@ -56,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
         });
-
         //Listener en boton play/pause para reproducir/pausar cancion y cambiar de icono
         buttonPlayPause.addOnCheckedChangeListener((materialButton, b) -> {
             if (b) {
@@ -85,4 +79,9 @@ public class MainActivity extends AppCompatActivity {
         SongAdapter songAdapter = new SongAdapter(SongList.getSongs());
         recyclerView.setAdapter(songAdapter);
     }
+    public int searchDrawable(Song song){
+        int id = getResources().getIdentifier(song.getImage() , "drawable", getPackageName());
+        return id;
+    }
+
 }
