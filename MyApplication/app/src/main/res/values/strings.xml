@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="description_text_playlist">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac pellentesque augue. Morbi sem ligula, faucibus ut mollis vestibulum, tincidunt ac ligula.</string>
+    <string name="playlist_title">Mi Playlist</string>
+    <string name="description_text_playlist">Esto es una playlist con canciones</string>
 </resources>

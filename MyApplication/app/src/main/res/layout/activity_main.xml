@@ -45,8 +45,8 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="4dp"
-            app:shapeAppearanceOverlay="@style/roundedImageView"
             android:cropToPadding="false"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
             app:srcCompat="@drawable/album_cover" />
 
         <TextView
@@ -54,17 +54,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Playlist"
+            android:text="@string/playlist_title"
             android:textColor="@color/yellow"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/playlistDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="37dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
+            android:gravity="center"
             android:text="@string/description_text_playlist"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
@@ -165,7 +166,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewId"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
