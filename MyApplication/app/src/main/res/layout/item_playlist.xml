@@ -18,30 +18,33 @@
 
     <TextView
         android:id="@+id/songTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/light_grey"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/songImage"
         app:layout_constraintTop_toTopOf="@+id/songImage"></TextView>
 
     <TextView
         android:id="@+id/songArtist"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:textColor="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/songImage"
         app:layout_constraintTop_toBottomOf="@+id/songTitle"></TextView>
 
     <TextView
         android:id="@+id/songAlbum"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:textColor="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/songImage"
         app:layout_constraintTop_toBottomOf="@id/songArtist"></TextView>
 
