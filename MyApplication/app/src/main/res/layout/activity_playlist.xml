@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/background_black"
+        android:gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/playlistImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="4dp"
+            android:cropToPadding="false"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:srcCompat="@drawable/album_cover" />
+
+        <TextView
+            android:id="@+id/playlistTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/playlist_title"
+            android:textColor="@color/yellow"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/playlistDescription"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:text="@string/description_text_playlist"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/playlistActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/songOptions"
+                style="@style/button_secondary"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/dots_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@color/yellow"
+                app:toggleCheckedStateOnClick="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/randomButton"
+                style="@style/button_secondary"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/random_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@drawable/icon_color_change" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonPlayPause"
+                style="@style/button_play"
+                android:layout_width="60dp"
+                android:layout_height="61dp"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:paddingTop="10dp"
+                app:backgroundTint="@color/purple_button"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/play_button"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="70dp"
+                app:iconTint="@color/pink" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/downloadButton"
+                style="@style/button_secondary"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:longClickable="false"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/download_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@drawable/icon_color_change" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/likeButton"
+                style="@style/button_secondary"
+                android:checkable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/like_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="50dp"
+                app:iconTint="@drawable/icon_color_change" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/burgerMenu"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/burger_menu" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:queryBackground="@drawable/bg_white_rounded"
+            app:submitBackground="@drawable/bg_white_rounded"
+            android:background="@drawable/bg_white_rounded"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/userIcon"
+            app:layout_constraintStart_toEndOf="@+id/burgerMenu"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userIcon"
+            style="@style/button_secondary"
+            android:layout_width="50dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:checkable="true"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:longClickable="false"
+            app:backgroundTint="@color/pink"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/home_icon"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="50dp"
+            app:iconTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
