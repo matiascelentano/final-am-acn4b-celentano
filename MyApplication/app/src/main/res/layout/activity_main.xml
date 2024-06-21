@@ -68,7 +68,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/optionsButton"
+                android:id="@+id/songOptions"
                 style="@style/button_secondary"
                 android:checkable="true"
                 android:insetLeft="0dp"
