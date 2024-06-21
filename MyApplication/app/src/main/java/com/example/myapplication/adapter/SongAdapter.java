@@ -1,5 +1,6 @@
 package com.example.myapplication.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.Song;
-import com.example.myapplication.SongList;
 
 import java.util.ArrayList;
 
@@ -30,6 +30,14 @@ public class SongAdapter extends RecyclerView.Adapter<SongViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull SongViewHolder holder, int position) {
         Song item = songList.get(position);
+        holder.itemView.setTag(position);
+        holder.itemView.setOnClickListener(view -> {
+            int position1 = (int) view.getTag();
+            Log.i("songPosition", "Position: " + position);
+        });
+        holder.itemView.findViewById(R.id.songOptions).setOnClickListener(view -> {
+            Log.i("songOptions", "Position: " + position);
+        });
         holder.render(item);
     }
     @Override

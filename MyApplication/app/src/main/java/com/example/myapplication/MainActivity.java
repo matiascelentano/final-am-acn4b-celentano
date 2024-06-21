@@ -3,11 +3,9 @@ package com.example.myapplication;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -67,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 materialButton.setIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.play_button, null));
             }
         });
+
     }
     public ExoPlayer createExoPlayerPlaylist(){
         ExoPlayer player = new ExoPlayer.Builder(this).build();
