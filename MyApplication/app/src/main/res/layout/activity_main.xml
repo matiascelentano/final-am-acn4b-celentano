@@ -90,7 +90,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Playlists"
-            android:textColor="@color/yellow"
+            android:textAppearance="@style/sectionsTitle"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +100,7 @@
             android:layout_width="185dp"
             android:layout_height="64dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="2dp"
             android:background="@drawable/bg_black_rounded"
             android:backgroundTint="#000000"
@@ -147,13 +147,12 @@
             android:layout_width="185dp"
             android:layout_height="64dp"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bg_black_rounded"
             android:backgroundTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/playlistListFirst"
-            app:layout_constraintTop_toBottomOf="@+id/playlistsText">
+            app:layout_constraintTop_toTopOf="@+id/playlistListFirst">
 
             <TextView
                 android:id="@+id/playlistListSecondText"
@@ -282,5 +281,39 @@
                 app:shapeAppearanceOverlay="@style/roundedImageView"
                 app:srcCompat="@drawable/album_cover" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/artistSection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/background_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playlistSection">
+
+        <TextView
+            android:id="@+id/artistSectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Artists"
+            android:textAppearance="@style/sectionsTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/artistsRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistSectionTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

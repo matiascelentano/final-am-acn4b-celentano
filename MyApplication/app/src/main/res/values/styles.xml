@@ -27,9 +27,16 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15dp</item>
     </style>
+
     <style name="roundedImageMain">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">1dp</item>
     </style>
 
+    <style name="sectionsTitle">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
