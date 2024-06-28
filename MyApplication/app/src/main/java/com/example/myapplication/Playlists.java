@@ -11,12 +11,12 @@ public class Playlists {
         int audioslave = R.drawable.album_cover5;
 
         ArrayList<Playlist> playlists = new ArrayList<>();
-        Playlist playlist1 = new Playlist(1,"Mi Playlist 1",vkiss);
-        Playlist playlist2 = new Playlist(1,"Mi Playlist 2",ram);
-        Playlist playlist3 = new Playlist(1,"Mi Playlist 3",discovery);
-        Playlist playlist4 = new Playlist(1,"Mi Playlist 4",colorandshape);
-        Playlist playlist5 = new Playlist(1,"Mi Playlist 5",audioslave);
-        Playlist playlist6 = new Playlist(1,"Mi Playlist 6",ram);
+        Playlist playlist1 = new Playlist(1,"Mi Playlist 1",vkiss,SongList.getSongs());
+        Playlist playlist2 = new Playlist(1,"Mi Playlist 2",ram,SongList.getSongs());
+        Playlist playlist3 = new Playlist(1,"Mi Playlist 3",discovery,SongList.getSongs());
+        Playlist playlist4 = new Playlist(1,"Mi Playlist 4",colorandshape,SongList.getSongs());
+        Playlist playlist5 = new Playlist(1,"Mi Playlist 5",audioslave,SongList.getSongs());
+        Playlist playlist6 = new Playlist(1,"Mi Playlist 6",ram,SongList.getSongs());
 
         playlists.add(playlist1);
         playlists.add(playlist2);

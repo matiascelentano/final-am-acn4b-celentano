@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
+import java.util.ArrayList;
+
 public class Playlist {
     private Integer id;
     private String name;
     private int img;
+    private ArrayList<Song>songs;
     public Integer getId() {
         return id;
     }
@@ -25,9 +28,18 @@ public class Playlist {
         this.img = imgFileName;
     }
 
-    public Playlist(Integer id, String name, int img) {
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(ArrayList<Song> songs) {
+        this.songs = songs;
+    }
+
+    public Playlist(Integer id, String name, int img,ArrayList<Song>songs) {
         this.id = id;
         this.name = name;
         this.img = img;
+        this.songs = songs;
     }
 }
