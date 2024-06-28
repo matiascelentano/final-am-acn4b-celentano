@@ -30,10 +30,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull AlbumViewHolder holder, int position) {
         Album item = albums.get(position);
-        holder.itemView.setTag(position);
+        holder.itemView.setTag(item.getId());
         holder.itemView.setOnClickListener(view -> {
-            int position1 = (int) view.getTag();
-            Log.i("album", "Position: " + position);
+            int id1 = (int) view.getTag();
+            Log.i("album", "ID: " + id1);
         });
         holder.render(item);
     }
