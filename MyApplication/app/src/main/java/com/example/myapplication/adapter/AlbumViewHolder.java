@@ -17,8 +17,8 @@ public class AlbumViewHolder extends RecyclerView.ViewHolder {
         albumImage = itemView.findViewById(R.id.albumImageRecycler);
         albumName = itemView.findViewById(R.id.albumTitle);
     }
-    public void render(Album artist){
-        albumImage.setImageResource(artist.getImg());
-        albumName.setText(artist.getName());
+    public void render(Album album){
+        albumImage.setImageResource(album.getImg());
+        albumName.setText(album.getName());
     }
 }
