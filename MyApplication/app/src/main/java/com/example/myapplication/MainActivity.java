@@ -16,6 +16,8 @@ import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.adapter.ArtistAdapter;
 import com.example.myapplication.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
 
@@ -31,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        initRecyclerViewArtist();
+    }
+    private void initRecyclerViewArtist(){
+        RecyclerView recyclerView = findViewById(R.id.artistsRecyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists());
+        recyclerView.setAdapter(artistAdapter);
     }
 }
