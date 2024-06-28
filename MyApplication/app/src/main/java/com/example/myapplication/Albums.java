@@ -3,7 +3,7 @@ package com.example.myapplication;
 import java.util.ArrayList;
 
 public class Albums {
-    public static ArrayList<Album> getAlbum(){
+    public static ArrayList<Album> getAlbums(){
         int ram = R.drawable.album_cover;
         int vkiss = R.drawable.album_cover2;
         int discovery = R.drawable.album_cover3;

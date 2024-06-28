@@ -14,9 +14,11 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.adapter.AlbumAdapter;
 import com.example.myapplication.adapter.ArtistAdapter;
 import com.example.myapplication.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         initRecyclerViewArtist();
+        initRecyclerViewAlbum();
     }
     private void initRecyclerViewArtist(){
         RecyclerView recyclerView = findViewById(R.id.artistsRecyclerView);
@@ -41,5 +44,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists());
         recyclerView.setAdapter(artistAdapter);
+    }
+    private void initRecyclerViewAlbum(){
+        RecyclerView recyclerView = findViewById(R.id.albumRecyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        AlbumAdapter albumAdapter = new AlbumAdapter(Albums.getAlbums());
+        recyclerView.setAdapter(albumAdapter);
     }
 }
