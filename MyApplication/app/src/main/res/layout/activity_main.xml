@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Playlists"
+            android:text="@string/playlist_section_title"
             android:textAppearance="@style/sectionsTitle"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -300,7 +300,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:includeFontPadding="true"
-            android:text="Artists"
+            android:text="@string/artist_section_title"
             android:textAppearance="@style/sectionsTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -332,7 +332,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Albums"
+            android:text="@string/album_section_title"
             android:textAppearance="@style/sectionsTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
