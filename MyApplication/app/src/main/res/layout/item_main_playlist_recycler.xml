@@ -9,7 +9,7 @@
     android:background="@drawable/bg_black_rounded">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/albumImageRecycler"
+        android:id="@+id/playlistRecyclerImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="2dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/album_cover" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/playlistRecyclerTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,7 +31,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/albumImageRecycler"
+        app:layout_constraintStart_toEndOf="@+id/playlistRecyclerImage"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
