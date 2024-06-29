@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,7 +17,7 @@ import com.example.myapplication.adapter.AlbumAdapter;
 import com.example.myapplication.adapter.ArtistAdapter;
 import com.example.myapplication.adapter.PlaylistAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PlaylistAdapterItemOnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         //RecyclerView Seccion Playlists
         RecyclerView playlistSectionRecyclerView = findViewById(R.id.playlistRecyclerView);
         playlistSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
-        PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists());
+        PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists(), this);
         playlistSectionRecyclerView.setAdapter(playlistAdapter);
 
         //RecyclerView Seccion Artistas
@@ -48,5 +49,11 @@ public class MainActivity extends AppCompatActivity {
         albumSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         AlbumAdapter albumAdapter = new AlbumAdapter(Albums.getAlbums());
         albumSectionRecyclerView.setAdapter(albumAdapter);
+    }
+
+    @Override
+    public void onItemClickListener(Playlist playlist, int position) {
+        Intent intent = new Intent(this, PlaylistActivity.class);
+        startActivity(intent);
     }
 }
