@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initRecyclerViewPlaylist(){
         RecyclerView recyclerView = findViewById(R.id.playlistRecyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists());
         recyclerView.setAdapter(playlistAdapter);
     }
