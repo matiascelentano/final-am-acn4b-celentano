@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
     @Override
     public void onItemClickListener(Playlist playlist, int position) {
         Intent intent = new Intent(this, PlaylistActivity.class);
+        intent.putExtra("id",playlist.getId());
         startActivity(intent);
     }
 }
