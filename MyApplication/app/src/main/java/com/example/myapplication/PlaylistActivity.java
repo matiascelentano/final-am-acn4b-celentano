@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +35,17 @@ public class PlaylistActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        initRecyclerView();
+        Intent intent = getIntent();
+        if(intent.hasExtra("id")){
+            Playlist playlist = Playlists.findPlaylist(intent.getIntExtra("id",0));
+            if(playlist != null){
+                ImageView playlistImage = findViewById(R.id.playlistImage);
+                playlistImage.setImageResource(playlist.getImg());
+                TextView playlistTitle = findViewById(R.id.playlistTitle);
+                playlistTitle.setText(playlist.getName());
+                initRecyclerView(playlist);
+            }
+        }
         //Boton Play/Pause
         MaterialButton buttonPlayPause = findViewById(R.id.buttonPlayPause);
         //Preparando Exoplayer
@@ -76,10 +89,10 @@ public class PlaylistActivity extends AppCompatActivity {
         player.prepare();
         return player;
     }
-    private void initRecyclerView(){
+    private void initRecyclerView(Playlist playlist){
         RecyclerView recyclerView = findViewById(R.id.recyclerViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SongAdapter songAdapter = new SongAdapter(SongList.getSongs());
+        SongAdapter songAdapter = new SongAdapter(playlist.getSongs());
         recyclerView.setAdapter(songAdapter);
     }
 }

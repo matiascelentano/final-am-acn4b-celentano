@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         //RecyclerView Seccion Playlists
         RecyclerView playlistSectionRecyclerView = findViewById(R.id.playlistRecyclerView);
         playlistSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
-        PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists(), this);
+        PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.playlists, this);
         playlistSectionRecyclerView.setAdapter(playlistAdapter);
 
         //RecyclerView Seccion Artistas

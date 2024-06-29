@@ -3,8 +3,8 @@ package com.example.myapplication;
 import java.util.ArrayList;
 
 public class Playlists {
-    public final ArrayList<Playlist> playlists = getPlaylists();
-    public static ArrayList<Playlist> getPlaylists(){
+    public static ArrayList<Playlist> playlists = setPlaylists();
+    public static ArrayList<Playlist> setPlaylists(){
         int ram = R.drawable.album_cover;
         int vkiss = R.drawable.album_cover2;
         int discovery = R.drawable.album_cover3;
@@ -28,5 +28,14 @@ public class Playlists {
 
 
         return playlists;
+    }
+    public static Playlist findPlaylist(int id){
+        Playlist pl = null;
+        for(Playlist item:playlists){
+            if(item.getId() == id){
+                pl = item;
+            }
+        }
+        return pl;
     }
 }
