@@ -36,27 +36,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        initRecyclerViewPlaylist();
-        initRecyclerViewArtist();
-        initRecyclerViewAlbum();
+        initMainActivityRecyclerViewers();
     }
-    private void initRecyclerViewPlaylist(){
-        RecyclerView recyclerView = findViewById(R.id.playlistRecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
+    private void initMainActivityRecyclerViewers(){
+        //RecyclerView Seccion Playlists
+        RecyclerView playlistSectionRecyclerView = findViewById(R.id.playlistRecyclerView);
+        playlistSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists());
-        recyclerView.setAdapter(playlistAdapter);
-    }
-    private void initRecyclerViewArtist(){
-        RecyclerView recyclerView = findViewById(R.id.artistsRecyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        playlistSectionRecyclerView.setAdapter(playlistAdapter);
+
+        //RecyclerView Seccion Artistas
+        RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
+        artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists());
-        recyclerView.setAdapter(artistAdapter);
-    }
-    private void initRecyclerViewAlbum(){
-        RecyclerView recyclerView = findViewById(R.id.albumRecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
+        artistSectionRecycleView.setAdapter(artistAdapter);
+
+        //RecyclerView Seccion Album
+        RecyclerView albumSectionRecyclerView = findViewById(R.id.albumRecyclerView);
+        albumSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         AlbumAdapter albumAdapter = new AlbumAdapter(Albums.getAlbums());
-        recyclerView.setAdapter(albumAdapter);
+        albumSectionRecyclerView.setAdapter(albumAdapter);
     }
 }
