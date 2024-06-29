@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.adapter.AlbumAdapter;
 import com.example.myapplication.adapter.ArtistAdapter;
+import com.example.myapplication.adapter.PlaylistAdapter;
 import com.example.myapplication.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
 
@@ -35,8 +36,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initRecyclerViewPlaylist();
         initRecyclerViewArtist();
         initRecyclerViewAlbum();
+    }
+    private void initRecyclerViewPlaylist(){
+        RecyclerView recyclerView = findViewById(R.id.playlistRecyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.getPlaylists());
+        recyclerView.setAdapter(playlistAdapter);
     }
     private void initRecyclerViewArtist(){
         RecyclerView recyclerView = findViewById(R.id.artistsRecyclerView);
