@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initRecyclerViewAlbum(){
         RecyclerView recyclerView = findViewById(R.id.albumRecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         AlbumAdapter albumAdapter = new AlbumAdapter(Albums.getAlbums());
         recyclerView.setAdapter(albumAdapter);
     }
