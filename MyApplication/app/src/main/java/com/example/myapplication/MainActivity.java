@@ -2,18 +2,12 @@ package com.example.myapplication;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.media3.common.MediaItem;
-import androidx.media3.common.MediaMetadata;
-import androidx.media3.common.Player;
-import androidx.media3.exoplayer.ExoPlayer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.adapter.AlbumAdapter;
 import com.example.myapplication.adapter.ArtistAdapter;
 import com.example.myapplication.adapter.PlaylistAdapter;
-import com.example.myapplication.adapter.SongAdapter;
-import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
