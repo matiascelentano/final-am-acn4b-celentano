@@ -2,8 +2,10 @@ package com.example.soundwaves;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.soundwaves.adapter.AlbumAdapter;
 import com.example.soundwaves.adapter.ArtistAdapter;
 import com.example.soundwaves.adapter.PlaylistAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity implements PlaylistAdapterItemOnClickListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -28,6 +34,18 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
+                        Log.d("firebase",document.getId() + " => " + document.getData());
+                    }
+                }else {
+                    Log.d("firebase", "No such document");
+                }
+            }
         });
         initMainActivityRecyclerViewers();
     }
