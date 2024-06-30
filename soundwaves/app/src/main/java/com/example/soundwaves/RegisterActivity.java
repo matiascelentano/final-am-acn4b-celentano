@@ -67,6 +67,9 @@ public class RegisterActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(confirmPassword)){
             Toast.makeText(this,"Please confirm your password", Toast.LENGTH_SHORT).show();
             return;
+        } else if (!TextUtils.equals(confirmPassword,password)) {
+            Toast.makeText(this,"Passwords don't match", Toast.LENGTH_SHORT).show();
+            return;
         }
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
+            android:inputType="textEmailAddress"
             android:hint="@string/registerEmailInput"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
