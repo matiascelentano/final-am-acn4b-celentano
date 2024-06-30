@@ -8,7 +8,9 @@
     <string name="loginMainText">Login to Account</string>
     <string name="loginRegisterText">Create an Account</string>
     <string name="loginEmailText">Email</string>
+    <string name="loginEmailHint">Enter your Email</string>
     <string name="loginPasswordText">Password</string>
+    <string name="loginPasswordHint">Enter your Password</string>
     <string name="loginButtonText">Login</string>
     <string name="loginRegisterButton">Register</string>
     <string name="registerMainText">Create an Account</string>

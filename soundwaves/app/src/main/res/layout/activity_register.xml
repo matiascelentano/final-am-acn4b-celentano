@@ -61,7 +61,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:hint="@string/registerUsernameInputText" />
+            android:hint="@string/registerUsernameInputText"
+            android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -98,7 +99,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:hint="@string/registerEmailInput" />
+            android:hint="@string/registerEmailInput"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -133,11 +135,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:hint="@string/registerPasswordInput" />
+            android:inputType="textPassword"
+            android:hint="@string/registerPasswordInput"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/registerPasswordConfirmText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -160,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/registerPasswordConfirmText">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registerPasswordConfirmInput"
@@ -168,7 +172,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:hint="@string/registerPasswordConfirmInput" />
+            android:hint="@string/registerPasswordConfirmInput"
+            android:inputType="textPassword"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
