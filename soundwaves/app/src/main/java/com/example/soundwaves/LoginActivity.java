@@ -2,9 +2,11 @@ package com.example.soundwaves;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,10 +46,26 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     public void login(View view){
+        String email, password;
+        email = loginEmail.getText().toString();
+        password = loginPassword.getText().toString();
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Please a valid email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Please your password", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mAuth.signInWithEmailAndPassword(loginEmail.getText().toString(),loginPassword.getText().toString())
-            .addOnCompleteListener(this, task -> {
+            .addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
                     Log.i("authf",mAuth.getCurrentUser().getEmail());
+                    Intent mainAct = new Intent(this, MainActivity.class);
+                    startActivity(mainAct);
+                    finish();
+                }else {
+                    Toast.makeText(LoginActivity.this,"Email or password is incorrect", Toast.LENGTH_SHORT).show();
                 }
             });
     }
@@ -55,4 +73,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent register = new Intent(this, RegisterActivity.class);
         startActivity(register);
     }
+
 }
