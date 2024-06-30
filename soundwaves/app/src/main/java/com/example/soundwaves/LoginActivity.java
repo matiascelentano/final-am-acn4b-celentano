@@ -37,6 +37,11 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(this::login);
         registerButton.setOnClickListener(this::registerRedirect);
+
+        Intent intent = getIntent();
+        if(intent.hasExtra("email")){
+            loginEmail.setText(intent.getStringExtra("email"));
+        }
     }
     public void login(View view){
         mAuth.signInWithEmailAndPassword(loginEmail.getText().toString(),loginPassword.getText().toString())
