@@ -1,5 +1,6 @@
 package com.example.soundwaves;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     TextInputEditText loginEmail, loginPassword;
-    Button loginButton;
+    Button loginButton, registerButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         loginEmail = findViewById(R.id.loginEmailInput);
         loginPassword = findViewById(R.id.loginPasswordInput);
         loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButtonLoginActivity);
 
         loginButton.setOnClickListener(this::login);
+        registerButton.setOnClickListener(this::registerRedirect);
     }
     public void login(View view){
         mAuth.signInWithEmailAndPassword(loginEmail.getText().toString(),loginPassword.getText().toString())
@@ -43,5 +46,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
     }
-
+    public void registerRedirect(View view){
+        Intent register = new Intent(this, RegisterActivity.class);
+        startActivity(register);
+    }
 }
