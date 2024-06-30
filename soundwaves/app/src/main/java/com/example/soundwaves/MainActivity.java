@@ -35,18 +35,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document : task.getResult()){
-                        Log.d("firebase",document.getId() + " => " + document.getData());
-                    }
-                }else {
-                    Log.d("firebase", "No such document");
-                }
-            }
-        });
+
         initMainActivityRecyclerViewers();
     }
     private void initMainActivityRecyclerViewers(){
