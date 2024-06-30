@@ -11,4 +11,14 @@
     <string name="loginPasswordText">Password</string>
     <string name="loginButtonText">Login</string>
     <string name="loginRegisterButton">Register</string>
+    <string name="registerMainText">Create an Account</string>
+    <string name="registerUsername">Username</string>
+    <string name="registerUsernameInputText">Enter a username</string>
+    <string name="registerEmail">Email</string>
+    <string name="registerEmailInput">Enter your email</string>
+    <string name="registerPassword">Password</string>
+    <string name="registerPasswordInput">Enter a Password</string>
+    <string name="registerPasswordConfirm">Confirm Password</string>
+    <string name="registerPasswordConfirmInput">Re-enter password</string>
+    <string name="registerButtonCreate">Create Account</string>
 </resources>
