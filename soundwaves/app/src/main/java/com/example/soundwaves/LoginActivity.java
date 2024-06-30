@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     TextInputEditText loginEmail, loginPassword;
+    ConstraintLayout progressBarContainer;
     Button loginButton, registerButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        progressBarContainer = findViewById(R.id.progressBarContainer);
         loginEmail = findViewById(R.id.loginEmailInput);
         loginPassword = findViewById(R.id.loginPasswordInput);
         loginButton = findViewById(R.id.loginButton);
@@ -59,12 +61,14 @@ public class LoginActivity extends AppCompatActivity {
         }
         mAuth.signInWithEmailAndPassword(loginEmail.getText().toString(),loginPassword.getText().toString())
             .addOnCompleteListener(task -> {
+                progressBarContainer.setVisibility(View.VISIBLE);
                 if (task.isSuccessful()){
                     Log.i("authf",mAuth.getCurrentUser().getEmail());
                     Intent mainAct = new Intent(this, MainActivity.class);
                     startActivity(mainAct);
                     finish();
                 }else {
+                    progressBarContainer.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this,"Email or password is incorrect", Toast.LENGTH_SHORT).show();
                 }
             });
