@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "730091910105",
+    "project_id": "soundwaves-4eb49",
+    "storage_bucket": "soundwaves-4eb49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730091910105:android:73d3e4b42ceacd33281fc8",
+        "android_client_info": {
+          "package_name": "com.example.soundwaves"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGvzU61sgvmY92jTzNudak01uZ7mqrktA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
