@@ -5,4 +5,10 @@
     <string name="playlist_section_title">Tus Playlists</string>
     <string name="artist_section_title">Artistas</string>
     <string name="album_section_title">Albums</string>
+    <string name="loginMainText">Login to Account</string>
+    <string name="loginRegisterText">Create an Account</string>
+    <string name="loginEmailText">Email</string>
+    <string name="loginPasswordText">Password</string>
+    <string name="loginButtonText">Login</string>
+    <string name="loginRegisterButton">Register</string>
 </resources>
