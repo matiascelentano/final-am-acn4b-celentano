@@ -10,17 +10,16 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="188dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="189dp"
-        android:layout_marginBottom="280dp"
         android:backgroundTint="@color/pink"
         android:fontFamily="@font/roboto_condensed_regular"
+        android:padding="15dp"
         android:text="@string/loginButtonText"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,11 +73,12 @@
 
     <Button
         android:id="@+id/registerButtonLoginActivity"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/pink"
         android:fontFamily="@font/roboto_condensed_regular"
+        android:padding="15dp"
         android:text="@string/loginRegisterButton"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,9 +120,10 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:inputType="textEmailAddress"
             android:hint="@string/loginEmailHint"
-            android:maxLines="1" />
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -149,7 +150,8 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:hint="@string/loginPasswordHint"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
