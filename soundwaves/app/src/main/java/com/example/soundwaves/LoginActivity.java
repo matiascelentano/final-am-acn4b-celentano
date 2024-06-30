@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        progressBarContainer = findViewById(R.id.progressBarContainer);
+        progressBarContainer = findViewById(R.id.loginProgressBarContainer);
         loginEmail = findViewById(R.id.loginEmailInput);
         loginPassword = findViewById(R.id.loginPasswordInput);
         loginButton = findViewById(R.id.loginButton);

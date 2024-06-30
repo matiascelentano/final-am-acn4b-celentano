@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -31,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     TextInputEditText registerUsername, registerEmail, registerPassword, registerConfPassword;
+    ConstraintLayout progressBarContainer;
     Button createAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        progressBarContainer = findViewById(R.id.registerProgressBarContainer);
         registerUsername = findViewById(R.id.registerUsernameInput);
         registerEmail = findViewById(R.id.registerEmailInput);
         registerPassword = findViewById(R.id.registerPasswordInput);
@@ -81,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBarContainer.setVisibility(View.VISIBLE);
                         if (task.isSuccessful()) {
                             Map<String, Object> userData = new HashMap<>();
                             userData.put("username", username);
@@ -104,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(login);
                             finish();
                         } else {
+                            progressBarContainer.setVisibility(View.GONE);
                             Toast.makeText(RegisterActivity.this,"Failed to Create Account", Toast.LENGTH_SHORT).show();
                         }
                     }
