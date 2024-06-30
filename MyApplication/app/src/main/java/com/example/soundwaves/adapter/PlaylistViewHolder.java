@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter;
+package com.example.soundwaves.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,8 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Playlist;
-import com.example.myapplication.R;
+import com.example.soundwaves.Playlist;
+import com.example.soundwaves.R;
 
 public class PlaylistViewHolder extends RecyclerView.ViewHolder {
     private final ImageView playlistImage;

@@ -1,6 +1,4 @@
-package com.example.myapplication;
-
-import android.graphics.drawable.Drawable;
+package com.example.soundwaves;
 
 import java.util.ArrayList;
 

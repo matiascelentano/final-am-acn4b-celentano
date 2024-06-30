@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.soundwaves;
 
 public class Song {
     private Integer id;

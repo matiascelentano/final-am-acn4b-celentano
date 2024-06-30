@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter;
+package com.example.soundwaves.adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Album;
-import com.example.myapplication.R;
+import com.example.soundwaves.Album;
+import com.example.soundwaves.R;
 
 import java.util.ArrayList;
 

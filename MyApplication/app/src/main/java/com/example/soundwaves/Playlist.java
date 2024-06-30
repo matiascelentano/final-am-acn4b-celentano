@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.soundwaves;
 
 import java.util.ArrayList;
 

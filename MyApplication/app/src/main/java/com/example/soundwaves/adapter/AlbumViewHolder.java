@@ -1,13 +1,13 @@
-package com.example.myapplication.adapter;
+package com.example.soundwaves.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.soundwaves.R;
 
-import com.example.myapplication.Album;
-import com.example.myapplication.R;
+import com.example.soundwaves.Album;
 
 public class AlbumViewHolder extends RecyclerView.ViewHolder {
     private final ImageView albumImage;

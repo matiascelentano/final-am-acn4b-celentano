@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.soundwaves;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -20,7 +20,7 @@ import androidx.media3.exoplayer.ExoPlayer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.adapter.SongAdapter;
+import com.example.soundwaves.adapter.SongAdapter;
 import com.google.android.material.button.MaterialButton;
 
 public class PlaylistActivity extends AppCompatActivity {

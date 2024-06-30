@@ -1,6 +1,6 @@
-package com.example.myapplication;
+package com.example.soundwaves;
 
-public class Album {
+public class Artist {
     private int id;
     private String name;
     private int img;
@@ -28,9 +28,18 @@ public class Album {
         this.img = img;
     }
 
-    public Album(int id, String name, int img) {
+    public Artist(int id, String name, int img) {
         this.id = id;
         this.name = name;
         this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", img=" + img +
+                '}';
     }
 }
