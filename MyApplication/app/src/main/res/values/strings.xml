@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">My Application</string>
-    <string name="playlist_title">Mi Playlist</string>
-    <string name="description_text_playlist">Esto es una playlist con canciones</string>
-    <string name="playlist_section_title">Tus Playlists</string>
-    <string name="artist_section_title">Artistas</string>
-    <string name="album_section_title">Albums</string>
-</resources>
