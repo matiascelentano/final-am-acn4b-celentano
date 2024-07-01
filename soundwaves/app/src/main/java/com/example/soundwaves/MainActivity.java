@@ -34,7 +34,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements PlaylistAdapterItemOnClickListener {
+public class MainActivity extends AppCompatActivity implements PlaylistAdapterItemOnClickListener, ArtistAdapterItemOnClickListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         getTopAlbums();
         initMainActivityRecyclerViewers();
     }
+    @Override
+    public void onPlaylistItemClickListener(Playlist playlist, int position) {
+        Intent intent = new Intent(this, PlaylistActivity.class);
+        intent.putExtra("id",playlist.getId());
+        startActivity(intent);
+    }
     private void initMainActivityRecyclerViewers(){
         //RecyclerView Seccion Playlists
         RecyclerView playlistSectionRecyclerView = findViewById(R.id.playlistRecyclerView);
@@ -59,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
     }
 
     @Override
-    public void onItemClickListener(Playlist playlist, int position) {
-        Intent intent = new Intent(this, PlaylistActivity.class);
-        intent.putExtra("id",playlist.getId());
+    public void onArtistItemClickListener(Artist artist) {
+        Intent intent = new Intent(this, ArtistActivity.class);
+        intent.putExtra("id",artist.getId());
         startActivity(intent);
     }
     public void getTopArtists(){
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         });
         Volley.newRequestQueue(this).add(request);
     }
+
     public void getTopAlbums(){
         String urlTopAlbums = "https://api.deezer.com/chart/0/albums";
         StringRequest albumRequest = new StringRequest(Request.Method.GET, urlTopAlbums, new Response.Listener<String>() {
@@ -125,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
     public void initRecyclerViewArtist(ArrayList<Artist> topArtists){
         RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
         artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
-        ArtistAdapter artistAdapter = new ArtistAdapter(topArtists, MainActivity.this);
+        ArtistAdapter artistAdapter = new ArtistAdapter(topArtists, MainActivity.this, this);
         artistSectionRecycleView.setAdapter(artistAdapter);
     }
     public void initRecyclerViewAlbum(ArrayList<Album> topAlbums){
@@ -134,5 +141,4 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         AlbumAdapter albumAdapter = new AlbumAdapter(topAlbums, MainActivity.this);
         albumRecyclerView.setAdapter(albumAdapter);
     }
-
 }

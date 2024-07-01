@@ -32,7 +32,7 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistViewHolder>{
     public void onBindViewHolder(@NonNull PlaylistViewHolder holder, int position) {
         Playlist playlist = playlists.get(position);
         holder.itemView.setTag(playlist.getId());
-        holder.itemView.setOnClickListener(view -> itemOnClickListener.onItemClickListener(playlist, position));
+        holder.itemView.setOnClickListener(view -> itemOnClickListener.onPlaylistItemClickListener(playlist, position));
         holder.render(playlist);
     }
     @Override

@@ -1,5 +1,5 @@
 package com.example.soundwaves;
 
 public interface PlaylistAdapterItemOnClickListener {
-    void onItemClickListener(Playlist playlist, int position);
+    void onPlaylistItemClickListener(Playlist playlist, int position);
 }
