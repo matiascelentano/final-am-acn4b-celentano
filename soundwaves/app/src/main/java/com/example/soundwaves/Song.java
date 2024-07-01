@@ -60,7 +60,6 @@ public class Song {
     public void setDirectoryPath(String directoryPath) {
         this.directoryPath = "asset:///"+ this.getFileName();
     }
-
     public Song(Integer id, String name,String artist, String albumName, Integer duration,int image, String fileName) {
         setId(id);
         setName(name);
