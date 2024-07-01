@@ -14,6 +14,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.soundwaves.adapter.AlbumAdapter;
 import com.example.soundwaves.adapter.ArtistAdapter;
 import com.example.soundwaves.adapter.PlaylistAdapter;
@@ -22,6 +27,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements PlaylistAdapterItemOnClickListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -35,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        getTopArtists();
         initMainActivityRecyclerViewers();
     }
     private void initMainActivityRecyclerViewers(){
@@ -46,10 +57,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         playlistSectionRecyclerView.setAdapter(playlistAdapter);
 
         //RecyclerView Seccion Artistas
-        RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
-        artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists(), this);
-        artistSectionRecycleView.setAdapter(artistAdapter);
+
 
         //RecyclerView Seccion Album
         RecyclerView albumSectionRecyclerView = findViewById(R.id.albumRecyclerView);
@@ -63,5 +71,38 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         Intent intent = new Intent(this, PlaylistActivity.class);
         intent.putExtra("id",playlist.getId());
         startActivity(intent);
+    }
+    public void getTopArtists(){
+
+        String urlTopArtists = "https://api.deezer.com/chart/0/artists";
+        StringRequest request = new StringRequest(Request.Method.GET, urlTopArtists, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ArrayList<Artist> topArtists = new ArrayList<>();
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("data");
+                    for (int i = 0; i < result.length(); i++){
+                        JSONObject item = result.getJSONObject(i);
+                        Log.i("artista","" + item.getInt("id") + " " + item.getString("name") + " " + item.getString("picture_big"));
+                        topArtists.add(new Artist(item.getInt("id"),item.getString("name"),item.getString("picture_big")));
+                    }
+
+                    RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
+                    artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                    ArtistAdapter artistAdapter = new ArtistAdapter(topArtists, MainActivity.this);
+                    artistSectionRecycleView.setAdapter(artistAdapter);
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error", error.getMessage());
+            }
+        });
+        Volley.newRequestQueue(this).add(request);
     }
 }
