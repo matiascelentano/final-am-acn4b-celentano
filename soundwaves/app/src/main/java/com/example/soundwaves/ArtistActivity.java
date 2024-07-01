@@ -3,6 +3,7 @@ package com.example.soundwaves;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,8 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.soundwaves.adapter.ArtistActivityAlbumAdapter;
 import com.example.soundwaves.adapter.ArtistActivityTrackAdapter;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,9 +51,13 @@ public class ArtistActivity extends AppCompatActivity {
         StringRequest albumRequest = new StringRequest(Request.Method.GET, urlArtist, response -> {
             try {
                 JSONObject jsonObject = new JSONObject(response);
-                TextView nombreArtista = findViewById(R.id.artistActivityName);
-                nombreArtista.setText(jsonObject.getString("name"));
-
+                TextView artistName = findViewById(R.id.artistActivityName);
+                artistName.setText(jsonObject.getString("name"));
+                ShapeableImageView artistImage = findViewById(R.id.artistActivityImage);
+                Glide.with(this)
+                        .asBitmap()
+                        .load(jsonObject.getString("picture_big"))
+                        .into(artistImage);
             }catch (JSONException e){
                 e.printStackTrace();
             }
