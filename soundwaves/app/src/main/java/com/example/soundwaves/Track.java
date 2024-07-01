@@ -4,6 +4,7 @@ public class Track {
     private int id;
     private String title;
     private String album;
+    private String image;
 
     public int getId() {
         return id;
@@ -29,9 +30,18 @@ public class Track {
         this.album = album;
     }
 
-    public Track(int id, String title, String album) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Track(int id, String title, String album, String image) {
         this.id = id;
         this.title = title;
         this.album = album;
+        this.image = image;
     }
 }

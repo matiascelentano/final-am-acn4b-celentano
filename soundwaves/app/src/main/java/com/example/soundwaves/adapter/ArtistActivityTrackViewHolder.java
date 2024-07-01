@@ -9,9 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.soundwaves.Album;
-import com.example.soundwaves.Playlist;
 import com.example.soundwaves.R;
+import com.example.soundwaves.Track;
 
 public class ArtistActivityTrackViewHolder extends RecyclerView.ViewHolder{
     private final ImageView trackImage;
@@ -23,12 +22,12 @@ public class ArtistActivityTrackViewHolder extends RecyclerView.ViewHolder{
         trackName = itemView.findViewById(R.id.artistTrackTitle);
         trackAlbum = itemView.findViewById(R.id.artistTrackAlbum);
     }
-    public void render(Album album, Context context){
+    public void render(Track track, Context context){
         Glide.with(context)
                 .asBitmap()
-                .load(album.getImg())
+                .load(track.getImage())
                 .into(trackImage);
-        trackName.setText(album.getName());
-        trackAlbum.setText(album.getName());
+        trackName.setText(track.getTitle());
+        trackAlbum.setText(track.getAlbum());
     }
 }

@@ -20,6 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.soundwaves.adapter.AlbumAdapter;
+import com.example.soundwaves.adapter.ArtistActivityAlbumAdapter;
+import com.example.soundwaves.adapter.ArtistActivityTrackAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +42,7 @@ public class ArtistActivity extends AppCompatActivity {
             return insets;
         });
         setArtist(27);
+        getTracks(27);
         getAlbums(27);
     }
     public void setArtist(int id){
@@ -54,6 +57,35 @@ public class ArtistActivity extends AppCompatActivity {
                     nombreArtista.setText(jsonObject.getString("name"));
                     Log.d("artista", ""+jsonObject.getString("name"));
                     //Iniciando RecyclerView seccion de Albums
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("ErrorVolley", error.getMessage());
+            }
+        });
+        Volley.newRequestQueue(this).add(albumRequest);
+    }
+    public void getTracks(int id){
+        String urlTopTracks = "https://api.deezer.com/artist/"+ id + "/top?limit=10";
+        StringRequest albumRequest = new StringRequest(Request.Method.GET, urlTopTracks, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ArrayList<Track> topTracks = new ArrayList<>();
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("data");
+                    Log.d("albums", "onResponse: ENTRO A LA FUNCION");
+                    for (int j = 0; j < result.length(); j++){
+                        JSONObject item = result.getJSONObject(j);
+                        topTracks.add(new Track(item.getInt("id"),item.getString("title"),item.getJSONObject("album").getString("title"),item.getJSONObject("album").getString("cover_medium")));
+                        Log.i("track","" + topTracks.size());
+                    }
+                    //Iniciando RecyclerView seccion de Canciones
+                    initRecyclerViewTracks(topTracks);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -96,9 +128,15 @@ public class ArtistActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(albumRequest);
     }
     public void initRecyclerViewAlbum(ArrayList<Album> topAlbums){
-        RecyclerView albumRecyclerView = findViewById(R.id.artistActivityAlbumRecyclerView);
-        albumRecyclerView.setLayoutManager(new GridLayoutManager(ArtistActivity.this, 2));
-        AlbumAdapter albumAdapter = new AlbumAdapter(topAlbums, ArtistActivity.this);
-        albumRecyclerView.setAdapter(albumAdapter);
+        RecyclerView albumsRecyclerView = findViewById(R.id.artistActivityAlbumRecyclerView);
+        albumsRecyclerView.setLayoutManager(new GridLayoutManager(ArtistActivity.this, 2));
+        ArtistActivityAlbumAdapter albumAdapter = new ArtistActivityAlbumAdapter(topAlbums, ArtistActivity.this);
+        albumsRecyclerView.setAdapter(albumAdapter);
+    }
+    public void initRecyclerViewTracks(ArrayList<Track> topTracks){
+        RecyclerView trackRecyclerView = findViewById(R.id.artistActivityTrackRecyclerView);
+        trackRecyclerView.setLayoutManager(new LinearLayoutManager(ArtistActivity.this,LinearLayoutManager.VERTICAL,false));
+        ArtistActivityTrackAdapter artistActivityTrackAdapter= new ArtistActivityTrackAdapter(topTracks, ArtistActivity.this);
+        trackRecyclerView.setAdapter(artistActivityTrackAdapter);
     }
 }

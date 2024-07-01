@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.soundwaves.Album;
 import com.example.soundwaves.R;
+import com.example.soundwaves.Track;
 
 import java.util.ArrayList;
 
 public class ArtistActivityTrackAdapter extends RecyclerView.Adapter<ArtistActivityTrackViewHolder>{
-    private ArrayList<Album> tracks;
+    private ArrayList<Track> tracks;
     private Context context;
-    public ArtistActivityTrackAdapter(ArrayList<Album> albums, Context context) {
-        this.tracks = albums;
+    public ArtistActivityTrackAdapter(ArrayList<Track> tracks, Context context) {
+        this.tracks = tracks;
         this.context = context;
     }
     @NonNull
@@ -31,7 +32,7 @@ public class ArtistActivityTrackAdapter extends RecyclerView.Adapter<ArtistActiv
 
     @Override
     public void onBindViewHolder(@NonNull ArtistActivityTrackViewHolder holder, int position) {
-        Album item = tracks.get(position);
+        Track item = tracks.get(position);
         holder.itemView.setTag(item.getId());
         holder.itemView.setOnClickListener(view -> {
             int id1 = (int) view.getTag();

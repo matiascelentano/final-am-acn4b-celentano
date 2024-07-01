@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="3dp"
-    android:background="@color/black">
+    android:layout_margin="1dp"
+    android:background="@drawable/bg_black_rounded_img_border">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/artistTrackImage"
@@ -22,21 +22,28 @@
 
     <TextView
         android:id="@+id/artistTrackTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="Song Title"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/artistTrackImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/artistTrackAlbum"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="Song Album"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/artistTrackTitle"
         app:layout_constraintTop_toBottomOf="@+id/artistTrackTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

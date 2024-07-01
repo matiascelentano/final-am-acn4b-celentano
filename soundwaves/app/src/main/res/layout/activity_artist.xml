@@ -133,7 +133,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/artistActivityTrackRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -152,7 +152,7 @@
                 android:text="Albums"
                 android:textSize="34sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/artistActivityTrackRecyclerView" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/artistActivityAlbumRecyclerView"
