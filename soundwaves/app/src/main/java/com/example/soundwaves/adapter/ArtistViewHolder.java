@@ -19,7 +19,12 @@ public class ArtistViewHolder extends RecyclerView.ViewHolder {
         artistName = itemView.findViewById(R.id.artistName);
     }
     public void render(Artist artist){
-        artistImage.setImageResource(artist.getImg());
+       //TODO: setear imagen a ImageView
         artistName.setText(artist.getName());
     }
+
+    public void searchArtistImage(String string){
+
+    }
+
 }
