@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
     }
     public void initRecyclerViewAlbum(ArrayList<Album> topAlbums){
         RecyclerView albumRecyclerView = findViewById(R.id.albumRecyclerView);
-        albumRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+        albumRecyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2,GridLayoutManager.HORIZONTAL,false));
         AlbumAdapter albumAdapter = new AlbumAdapter(topAlbums, MainActivity.this);
         albumRecyclerView.setAdapter(albumAdapter);
     }
