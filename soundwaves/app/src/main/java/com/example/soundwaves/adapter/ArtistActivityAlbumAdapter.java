@@ -14,23 +14,23 @@ import com.example.soundwaves.R;
 
 import java.util.ArrayList;
 
-public class ArtistPageAlbumAdapter extends RecyclerView.Adapter<ArtistPageAlbumViewHolder> {
+public class ArtistActivityAlbumAdapter extends RecyclerView.Adapter<ArtistActivityAlbumViewHolder> {
     private ArrayList<Album> albums;
     private Context context;
-    public ArtistPageAlbumAdapter(ArrayList<Album> albums, Context context) {
+    public ArtistActivityAlbumAdapter(ArrayList<Album> albums, Context context) {
         this.albums = albums;
         this.context = context;
     }
     @NonNull
     @Override
-    public ArtistPageAlbumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ArtistActivityAlbumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_main_album_recycler, parent, false);
-        return new ArtistPageAlbumViewHolder(view);
+        return new ArtistActivityAlbumViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ArtistPageAlbumViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ArtistActivityAlbumViewHolder holder, int position) {
         Album item = albums.get(position);
         holder.itemView.setTag(item.getId());
         holder.itemView.setOnClickListener(view -> {

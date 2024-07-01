@@ -12,10 +12,10 @@ import com.bumptech.glide.Glide;
 import com.example.soundwaves.Album;
 import com.example.soundwaves.R;
 
-public class ArtistPageAlbumViewHolder extends RecyclerView.ViewHolder{
+public class ArtistActivityAlbumViewHolder extends RecyclerView.ViewHolder{
     private final ImageView albumImage;
     private final TextView albumName;
-    public ArtistPageAlbumViewHolder(@NonNull View itemView) {
+    public ArtistActivityAlbumViewHolder(@NonNull View itemView) {
         super(itemView);
         albumImage = itemView.findViewById(R.id.albumImageRecycler);
         albumName = itemView.findViewById(R.id.albumTitle);
