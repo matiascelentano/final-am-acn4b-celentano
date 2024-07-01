@@ -117,8 +117,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
-                android:text="Top Tracks "
-                android:textSize="34sp"
+                android:text="@string/artistTrackSectionTitle"
+                android:textColor="@color/white"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/artistActivityName" />
 
@@ -127,8 +128,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Artista"
-                android:textSize="34sp"
+                android:text="@string/artistTitlePlaceholder"
+                android:textColor="@color/white"
+                android:textSize="28dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -150,8 +152,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Albums"
-                android:textSize="34sp"
+                android:text="@string/artistAlbumsSectionTitle"
+                android:textColor="@color/white"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/artistActivityTrackRecyclerView" />
 

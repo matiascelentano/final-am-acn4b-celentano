@@ -23,4 +23,9 @@
     <string name="registerPasswordConfirm">Confirm Password</string>
     <string name="registerPasswordConfirmInput">Re-enter password</string>
     <string name="registerButtonCreate">Create Account</string>
+    <string name="artistTitlePlaceholder">Artist</string>
+    <string name="artistTrackTitlePlaceholder">Track</string>
+    <string name="artistTrackAlbumPlaceholder">Track Album</string>
+    <string name="artistTrackSectionTitle">Top Tracks</string>
+    <string name="artistAlbumsSectionTitle">Albums</string>
 </resources>
