@@ -9,13 +9,13 @@
               <type value="RUNNING_DEVICE_TARGET" />
               <deviceKey>
                 <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\matia\.android\avd\Pixel_8_API_34.avd" />
+                  <type value="SERIAL_NUMBER" />
+                  <value value="RFCW11RX27J" />
                 </Key>
               </deviceKey>
             </Target>
           </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-06-30T21:33:34.753356300Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-07-01T03:17:15.917868900Z" />
         </State>
       </entry>
     </value>

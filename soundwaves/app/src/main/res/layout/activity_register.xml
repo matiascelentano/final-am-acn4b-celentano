@@ -12,16 +12,13 @@
         android:id="@+id/registerMainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="118dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="119dp"
         android:fontFamily="@font/roboto_condensed_regular"
         android:text="@string/registerMainText"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/registerUsernameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,9 +43,9 @@
         android:id="@+id/registerUsernameInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/edit_text_rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +59,8 @@
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
             android:hint="@string/registerUsernameInputText"
-            android:lines="1" />
+            android:lines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -84,9 +82,9 @@
         android:id="@+id/registerEmailInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/edit_text_rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -99,9 +97,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:inputType="textEmailAddress"
             android:hint="@string/registerEmailInput"
-            android:maxLines="1" />
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -122,9 +121,9 @@
         android:id="@+id/registerPasswordInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/edit_text_rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,13 +131,15 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registerPasswordInput"
+            style="inputTextStyleBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:inputType="textPassword"
             android:hint="@string/registerPasswordInput"
-            android:maxLines="1" />
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -158,9 +159,9 @@
         android:id="@+id/registerPasswordConfirmInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/edit_text_rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -169,13 +170,15 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registerPasswordConfirmInput"
+            style="inputTextStyleBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounded_corners"
             android:fontFamily="@font/roboto_condensed_regular"
             android:hint="@string/registerPasswordConfirmInput"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
