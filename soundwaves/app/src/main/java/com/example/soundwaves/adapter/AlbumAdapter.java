@@ -1,5 +1,6 @@
 package com.example.soundwaves.adapter;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,10 @@ import java.util.ArrayList;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder>{
     private ArrayList<Album> albums;
-    public AlbumAdapter(ArrayList<Album> albums) {
+    private Context context;
+    public AlbumAdapter(ArrayList<Album> albums, Context context) {
         this.albums = albums;
+        this.context = context;
     }
 
     @NonNull
@@ -35,7 +38,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder>{
             int id1 = (int) view.getTag();
             Log.i("album", "ID: " + id1);
         });
-        holder.render(item);
+        holder.render(item, context);
     }
     @Override
     public int getItemCount() {

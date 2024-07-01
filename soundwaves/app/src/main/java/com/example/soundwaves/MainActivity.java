@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
             return insets;
         });
         getTopArtists();
+        getTopAlbums();
         initMainActivityRecyclerViewers();
     }
     private void initMainActivityRecyclerViewers(){
@@ -55,15 +56,6 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         playlistSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
         PlaylistAdapter playlistAdapter = new PlaylistAdapter(Playlists.playlists, this);
         playlistSectionRecyclerView.setAdapter(playlistAdapter);
-
-        //RecyclerView Seccion Artistas
-
-
-        //RecyclerView Seccion Album
-        RecyclerView albumSectionRecyclerView = findViewById(R.id.albumRecyclerView);
-        albumSectionRecyclerView.setLayoutManager(new GridLayoutManager(this, 2,GridLayoutManager.HORIZONTAL,false));
-        AlbumAdapter albumAdapter = new AlbumAdapter(Albums.getAlbums());
-        albumSectionRecyclerView.setAdapter(albumAdapter);
     }
 
     @Override
@@ -73,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         startActivity(intent);
     }
     public void getTopArtists(){
-
         String urlTopArtists = "https://api.deezer.com/chart/0/artists";
         StringRequest request = new StringRequest(Request.Method.GET, urlTopArtists, new Response.Listener<String>() {
             @Override
@@ -87,12 +78,8 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
                         Log.i("artista","" + item.getInt("id") + " " + item.getString("name") + " " + item.getString("picture_big"));
                         topArtists.add(new Artist(item.getInt("id"),item.getString("name"),item.getString("picture_big")));
                     }
-
-                    RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
-                    artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
-                    ArtistAdapter artistAdapter = new ArtistAdapter(topArtists, MainActivity.this);
-                    artistSectionRecycleView.setAdapter(artistAdapter);
-
+                    //Iniciando RecyclerView seccion de artistas
+                    initRecyclerViewArtist(topArtists);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -105,4 +92,47 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         });
         Volley.newRequestQueue(this).add(request);
     }
+    public void getTopAlbums(){
+        String urlTopAlbums = "https://api.deezer.com/chart/0/albums";
+        StringRequest albumRequest = new StringRequest(Request.Method.GET, urlTopAlbums, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ArrayList<Album> topAlbums = new ArrayList<>();
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("data");
+                    Log.d("albums", "onResponse: ENTRO A LA FUNCION");
+                    for (int j = 0; j < result.length(); j++){
+                        JSONObject item = result.getJSONObject(j);
+                        topAlbums.add(new Album(item.getInt("id"),item.getString("title"),item.getString("cover_medium")));
+                        Log.i("album","" + topAlbums.size());
+                    }
+                    //Iniciando RecyclerView seccion de Albums
+                    initRecyclerViewAlbum(topAlbums);
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("ErrorVolley", error.getMessage());
+            }
+        });
+        Volley.newRequestQueue(this).add(albumRequest);
+    }
+
+    public void initRecyclerViewArtist(ArrayList<Artist> topArtists){
+        RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
+        artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+        ArtistAdapter artistAdapter = new ArtistAdapter(topArtists, MainActivity.this);
+        artistSectionRecycleView.setAdapter(artistAdapter);
+    }
+    public void initRecyclerViewAlbum(ArrayList<Album> topAlbums){
+        RecyclerView albumRecyclerView = findViewById(R.id.albumRecyclerView);
+        albumRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+        AlbumAdapter albumAdapter = new AlbumAdapter(topAlbums, MainActivity.this);
+        albumRecyclerView.setAdapter(albumAdapter);
+    }
+
 }

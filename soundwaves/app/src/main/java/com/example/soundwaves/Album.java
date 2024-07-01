@@ -3,7 +3,7 @@ package com.example.soundwaves;
 public class Album {
     private int id;
     private String name;
-    private int img;
+    private String img;
     public int getId() {
         return id;
     }
@@ -20,15 +20,15 @@ public class Album {
         this.name = name;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
-    public Album(int id, String name, int img) {
+    public Album(int id, String name, String img) {
         this.id = id;
         this.name = name;
         this.img = img;
