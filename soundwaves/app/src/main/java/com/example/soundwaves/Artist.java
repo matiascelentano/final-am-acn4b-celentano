@@ -1,5 +1,8 @@
 package com.example.soundwaves;
 
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 public class Artist {
     private int id;
     private String name;

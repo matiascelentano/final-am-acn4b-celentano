@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements PlaylistAdapterIt
         //RecyclerView Seccion Artistas
         RecyclerView artistSectionRecycleView = findViewById(R.id.artistsRecyclerView);
         artistSectionRecycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists());
+        ArtistAdapter artistAdapter = new ArtistAdapter(ArtistList.getArtists(), this);
         artistSectionRecycleView.setAdapter(artistAdapter);
 
         //RecyclerView Seccion Album
